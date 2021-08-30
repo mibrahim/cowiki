@@ -14,7 +14,7 @@ if (isset($pageid)) {
 
 $Page['buttons'] = '
 <a class="btn btn-primary"><i class="fas fa-save"></i> Save</a>
-<a class="btn btn-primary" onclick="' . "new('" . htmlentities($currentSite) . "')" . '"><i class="fas fa-plus-circle"></i> New</a>
+<a class="btn btn-primary" onclick="' . "newPage('" . htmlentities($currentSite) . "')" . '"><i class="fas fa-plus-circle"></i> New</a>
 <a class="btn btn-primary" onclick="edit()"><i class="fas fa-edit"></i> Edit</a>
 ';
 
