@@ -24,22 +24,17 @@ $totalQueryTime = 0;
 
 function query($query, $DIE = TRUE)
 {
-    global $db, $queries, $debug, $totalQueryTime;
+    global $db, $queries, $debug, $totalQueryTime, $Page;
 
     $queries++;
 
-    $totalTime = 0;
-
-    if ($debug == '1') $totalTime = -microtime(true);
+    $totalTime = -microtime(true);
 
     $result = $db->query($query);
 
-    if ($debug == '1') {
-        $totalTime = $totalTime + microtime(true);
-        global $Page;
-        $Page['debug'] .= "<div><b>$queries - Time:$totalTime</b><br/><code>$query</code></div>";
-        $totalQueryTime += $totalTime;
-    }
+    $totalTime += microtime(true);
+    $Page['debug'] .= "<div><b>$queries - Time:$totalTime</b><br/><code>$query</code></div>";
+    $totalQueryTime += $totalTime;
 
     if ($result) {
         return $result;
@@ -67,16 +62,10 @@ function query_row($query, $DIE = TRUE)
     return $res->fetchArray(SQLITE3_ASSOC);
 }
 
-function se($s)
+function es($s)
 {
     global $db;
     return $db->escapeString($s);
-}
-
-function ses($s)
-{
-    global $db;
-    return se(stripslashes($s));
 }
 
 function getvar($varname)

@@ -11,9 +11,13 @@ function show($variable)
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php show('title') ?>
 </head>
 
 <body style='height: 100vh;'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
@@ -33,9 +37,25 @@ function show($variable)
                     <div class="text-center p-1">
                         <?php show('buttons'); ?>
                     </div>
+                    <?php show('pageheading'); ?>
                     <div id="basic-conf"><?php show('content'); ?></div>
                     <div><?php show('extracontent'); ?></div>
                 </form>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col-12'>
+                <div class="card">
+                    <div class="card-header text-danger">
+                        <b> <i class="fas fa-spider"></i>
+                            Debug info</b>
+                    </div>
+                    <div class="card-body" style='font-size:0.8em;'>
+                        <h5 class="card-title">SQL statements</h5>
+                        <tt><?php show('debug'); ?></tt>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

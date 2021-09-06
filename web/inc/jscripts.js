@@ -1,4 +1,6 @@
+var editing = false;
 function edit() {
+    editing = true;
     tinymce.init({
         selector: '#basic-conf',
         plugins: [
@@ -15,6 +17,7 @@ function edit() {
                 items: 'code visualaid | searchreplace | emoticons'
             }
         },
+        height: "600",
         menubar: 'favs file edit view insert format tools table help',
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
     });
@@ -59,9 +62,10 @@ function modalDialog(title, htmlContents) {
         });
 }
 
-function newPage(site, parent, parentid) {
+function newPage(site) {
     var html = "\
 <form method='post'>\
+  <input type='hidden' id='todoid' name='todo' value='newpage'>\
   <div class='form-group'>\
     <label for='site'>Site</label>\
     <input type='text' class='form-control' id='siteid' name='sitename' value='"+ site + "'>\
@@ -71,8 +75,29 @@ function newPage(site, parent, parentid) {
     <input type='text' class='form-control' id='titleid' name='title' placeholder='Enter page title'>\
   </div>\
   <div class='form-group'>\
+    <br/>\
+    <input type='submit' class='btn btn-success' id='titleid' value='create page'>\
+  </div>\
+</form>";
+
+    modalDialog("Add new page", html);
+}
+
+function childPage(site, parent, parentid) {
+    var html = "\
+<form method='post'>\
+  <input type='hidden' id='todoid' name='todo' value='childpage'>\
+  <div class='form-group'>\
+    <label for='site'>Site</label>\
+    <input type='text' class='form-control' id='siteid' name='sitename' value='"+ site + "' readonly>\
+  </div>\
+  <div class='form-group'>\
+    <label for='site'>Title</label>\
+    <input type='text' class='form-control' id='titleid' name='title' placeholder='Enter page title'>\
+  </div>\
+  <div class='form-group'>\
     <label for='site'>Parent page</label>\
-    <input type='readonly' class='form-control' id='parentname' value='"+ parent + "'>\
+    <input type='text' class='form-control' id='parentname' value='"+ parent + "' readonly>\
     <input type='hidden' class='form-control' id='parentid' name='parentid' value='"+ parentid + "'>\
   </div>\
   <div class='form-group'>\
@@ -81,5 +106,38 @@ function newPage(site, parent, parentid) {
   </div>\
 </form>";
 
-    modalDialog("Add new page", html);
+    modalDialog("Add a child page", html);
+}
+
+function edittitle(title) {
+    var html = "\
+<form method='post'>\
+  <input type='hidden' id='todoid' name='todo' value='updatetitle'>\
+  <div class='form-group'>\
+    <label for='site'>Title</label>\
+    <input type='text' class='form-control' id='titleid' name='title' value='"+ title + "' placeholder='Enter page title'>\
+  </div>\
+  <div class='form-group'>\
+    <br/>\
+    <input type='submit' class='btn btn-success' id='titleid' value='update'>\
+  </div>\
+</form>";
+
+    modalDialog("Edit title", html);
+}
+
+function save() {
+    if (!editing) return;
+
+    var content = tinymce.get("basic-conf").getContent();
+
+    $.post(
+        window.location,
+        {
+            todo: "updatecontent",
+            content: content
+        }
+    ).done(function (data) {
+        window.location.reload()
+    });
 }
