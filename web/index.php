@@ -21,7 +21,7 @@ if (isset($_GET['delete']) && $_GET['delete'] == '1') {
     $pageid = filter_input(INPUT_GET, "pageid");
     $row = query_row("select * from pages where key=$pageid");
     query("delete from pages where key=$pageid");
-    header("Location: /?site=$row[site]");
+    header("Location: ?site=$row[site]");
     die();
 }
 
@@ -32,7 +32,7 @@ if (isset($todo) && $todo == 'newpage') {
     query("insert into pages(site,title) values ('$siteName','$title')");
 
     $lastPageRow = query_row("select max(key) as max from pages");
-    header("Location: /?pageid=$lastPageRow[max]");
+    header("Location: ?pageid=$lastPageRow[max]");
     die();
 }
 
