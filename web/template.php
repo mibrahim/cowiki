@@ -36,7 +36,7 @@ function show($variable)
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-2 border border-light'>
-                <?php show('leftnav'); ?>
+                <a title='CoWiki' href='http://github.com/mibrahim/cowiki'><img src='wiki.png' style='height:32px;float:left;' alt='CoWiki'/></a> <?php show('leftnav'); ?>
             </div>
             <div class='col-10'>
                 <form method='post'>
@@ -58,6 +58,7 @@ function show($variable)
                     <div class="card-header text-danger">
                         <b> <i class="fas fa-spider"></i> Debug info</b>
                         <button class="btn btn-sm btn-outline-dark btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDebug" aria-expanded="false" aria-controls="collapseDebug">Show debug info</button>
+                        <div style='float:right'><a href='https://github.com/mibrahim/cowiki'><img src='wiki.png' style='height:32px' /> CoWiki</div></a>
                     </div>
                     <div class="collapse" id="collapseDebug">
                         <div class="card-body" style='font-size:0.8em;'>
