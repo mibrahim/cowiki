@@ -20,7 +20,7 @@ if (isset($_GET['delete']) && $_GET['delete'] == '1') {
     $content = es(filter_input(INPUT_POST, "content"));
     $pageid = filter_input(INPUT_GET, "pageid");
     $row = query_row("select * from pages where key=$pageid");
-    query("delete from pages where key=$pageid");
+    deletePage($pageid);
     header("Location: ?site=$row[site]");
     die();
 }

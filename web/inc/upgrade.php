@@ -4,7 +4,6 @@
 $highestversion = $dbver;
 
 if ($highestversion < "0001") {
-	// Upgrade to version 0001
 	query("BEGIN TRANSACTION");
 
 	query("CREATE TABLE variables(name text, value text)");
@@ -25,6 +24,17 @@ if ($highestversion < "0001") {
 	query("COMMIT");
 
 	$highestversion = "0001";
+}
+
+if ($highestversion < "0002") {
+	query("BEGIN TRANSACTION");
+
+	query("ALTER TABLE pages add deleted INTEGER DEFAULT 0");
+	query("CREATE INDEX idx_deleted on pages(deleted)");
+
+	query("COMMIT");
+
+	$highestversion = "0002";
 }
 
 if ($highestversion < $sysversion) {

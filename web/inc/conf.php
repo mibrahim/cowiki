@@ -88,7 +88,7 @@ function setvar($varname, $value)
 }
 
 // Check the db version
-$sysversion = "0001";
+$sysversion = "0002";
 $dbver = getVar("sysversion");
 if ($dbver === FALSE) {
     $dbver = "0000";
