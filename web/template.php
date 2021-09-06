@@ -18,6 +18,7 @@ function show($variable)
             border-radius: 5px;
         }
     </style>
+    <link rel="shortcut icon" type="image/jpg" href="wiki.png"/>
 </head>
 
 <body style='height: 100vh;'>
