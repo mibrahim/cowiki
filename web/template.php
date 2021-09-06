@@ -57,7 +57,7 @@ function show($variable)
                 <div class="card">
                     <div class="card-header text-danger">
                         <b> <i class="fas fa-spider"></i> Debug info</b>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDebug" aria-expanded="false" aria-controls="collapseDebug">Show debug info</button>
+                        <button class="btn btn-sm btn-outline-dark btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDebug" aria-expanded="false" aria-controls="collapseDebug">Show debug info</button>
                     </div>
                     <div class="collapse" id="collapseDebug">
                         <div class="card-body" style='font-size:0.8em;'>
