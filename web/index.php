@@ -69,6 +69,13 @@ if (isset($pageid)) {
       </div>\n";
 
     $Page['content'] = $pagerow['content'];
+
+    // Does it have children?
+    $hasChildren = query_row("select * from pages where parent=$pageid and deleted=0");
+    if ($hasChildren != false) {
+        $Page['extracontent'] .= "<hr/><h2>Contents</h2>";
+        $Page['extracontent'] .= childPagesList(null, $pageid);
+    }
 }
 
 $Page['buttons'] = '

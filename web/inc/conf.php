@@ -7,7 +7,7 @@ $webdir = str_replace("inc/conf.php", "", __FILE__);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$Page = ['contents' => '', 'title' => '', 'sub_title' => '', 'debug' => ''];
+$Page = ['contents' => '', 'title' => '', 'sub_title' => '', 'debug' => '', 'extracontent' => ''];
 
 $dbPath = $webdir . '.db/mysqlitedb.db';
 
