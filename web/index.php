@@ -77,7 +77,7 @@ $Page['buttons'] = '
 <a class="btn btn-primary" onclick="' . "newPage('" . htmlentities($currentSite) . "')" . '"><i class="fas fa-plus-circle"></i> New Page</a>
 <a class="btn btn-primary" onclick="' . "childPage('" . htmlentities($currentSite) . "', '" . htmlentities($pagerow['title']) . "', $pageid)" . '"><i class="fas fa-plus-circle"></i> Child Page</a>
 <a class="btn btn-primary" onclick="edit()"><i class="fas fa-edit"></i> Edit</a>
-<a class="btn btn-primary" href="/?pageid=' . $pageid . '&delete=1" onclick="return confirm(' . "'Are you sure?'" . ')"><i class="fas fa-trash"></i> Delete</a>
+<a class="btn btn-primary" href="?pageid=' . $pageid . '&delete=1" onclick="return confirm(' . "'Are you sure?'" . ')"><i class="fas fa-trash"></i> Delete</a>
 ';
 
 $siteIcon = '<i class="fas fa-sitemap"></i>';

@@ -31,7 +31,7 @@ function show($variable)
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script type="text/javascript" src='https://cdn.tiny.cloud/1/91s8q8hbv0sopgjdkp3xitronizi2ayrccnbd72wmj4mz7w9/tinymce/5/tinymce.min.js' referrerpolicy="origin">
     </script>
-    <script type="text/javascript" src='/inc/jscripts.js'></script>
+    <script type="text/javascript" src='inc/jscripts.js'></script>
 
     <div class='container-fluid' style='height:100%'>
         <div class='row' style='height:100%'>
