@@ -52,6 +52,7 @@ function show($variable)
 
         <div class='row'>
             <div class='col-12'>
+                <br/><br/><hr/>
                 <div class="card">
                     <div class="card-header text-danger">
                         <b> <i class="fas fa-spider"></i>
