@@ -33,12 +33,12 @@ function show($variable)
     </script>
     <script type="text/javascript" src='inc/jscripts.js'></script>
 
-    <div class='container-fluid' style='height:100%'>
-        <div class='row' style='height:100%'>
+    <div class='container-fluid'>
+        <div class='row'>
             <div class='col-2 border border-light'>
                 <?php show('leftnav'); ?>
             </div>
-            <div class='col-10' style='height:100%'>
+            <div class='col-10'>
                 <form method='post'>
                     <div class="text-center p-1">
                         <?php show('buttons'); ?>
