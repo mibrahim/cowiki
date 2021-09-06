@@ -52,15 +52,18 @@ function show($variable)
 
         <div class='row'>
             <div class='col-12'>
-                <br/><br/><hr/>
+                <br /><br />
+                <hr />
                 <div class="card">
                     <div class="card-header text-danger">
-                        <b> <i class="fas fa-spider"></i>
-                            Debug info</b>
+                        <b> <i class="fas fa-spider"></i> Debug info</b>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDebug" aria-expanded="false" aria-controls="collapseDebug">Show debug info</button>
                     </div>
-                    <div class="card-body" style='font-size:0.8em;'>
-                        <h5 class="card-title">SQL statements</h5>
-                        <tt><?php show('debug'); ?></tt>
+                    <div class="collapse" id="collapseDebug">
+                        <div class="card-body" style='font-size:0.8em;'>
+                            <h5 class="card-title">SQL statements</h5>
+                            <tt><?php show('debug'); ?></tt>
+                        </div>
                     </div>
                 </div>
             </div>
