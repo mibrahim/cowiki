@@ -22,7 +22,10 @@ function childPagesList($site, $parent, $padding = 0)
 
     $res = query($sql);
     while ($row = $res->fetchArray()) {
-        $html .= "<div class='ahover'><a class='ms-$padding' style='text-decoration: none;' href='?pageid=$row[key]'>" . es($row['title']) . "</a><br/></div>\n";
+        $class = "";
+        if (isset($_GET['pageid']) && $row['key'] == $_GET['pageid'])
+            $class = "bg-secondary bg-gradient text-white fw-bold round";
+        $html .= "<div class='ahover $class'><a class='ms-$padding $class' style='text-decoration: none;' href='?pageid=$row[key]'>" . es($row['title']) . "</a><br/></div>\n";
         $html .= childPagesList($site, $row['key'], $padding + 2);
     }
 
