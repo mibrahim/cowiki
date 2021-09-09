@@ -21,6 +21,14 @@ function edit() {
         menubar: 'favs file edit view insert format tools table help',
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
     });
+
+    $("table").stickyTableHeaders({
+        fixedOffset: 100,
+        //objDocument: tinymce.get("basic-conf").contentDocument,
+        //objHead: 'head',
+        //objWindow: tinymce.get("basic-conf").contentWindow,
+        scrollableArea: tinymce.get("basic-conf").contentWindow
+    });
 }
 
 function modalDialog(title, htmlContents) {

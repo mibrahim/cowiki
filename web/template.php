@@ -18,7 +18,7 @@ function show($variable)
             border-radius: 5px;
         }
     </style>
-    <link rel="shortcut icon" type="image/jpg" href="wiki.png"/>
+    <link rel="shortcut icon" type="image/jpg" href="wiki.png" />
 </head>
 
 <body style='height: 100vh;'>
@@ -33,11 +33,20 @@ function show($variable)
     <script type="text/javascript" src='https://cdn.tiny.cloud/1/91s8q8hbv0sopgjdkp3xitronizi2ayrccnbd72wmj4mz7w9/tinymce/5/tinymce.min.js' referrerpolicy="origin">
     </script>
     <script type="text/javascript" src='inc/jscripts.js'></script>
+    <script src="inc/jquery.stickytableheaders.min.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("table").stickyTableHeaders({
+                fixedOffset: 0
+            });
+        });
+    </script>
 
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-2 border border-light'>
-                <a title='CoWiki' href='http://github.com/mibrahim/cowiki'><img src='wiki.png' style='height:32px;float:left;' alt='CoWiki'/></a> <?php show('leftnav'); ?>
+                <a title='CoWiki' href='http://github.com/mibrahim/cowiki'><img src='wiki.png' style='height:32px;float:left;' alt='CoWiki' /></a> <?php show('leftnav'); ?>
             </div>
             <div class='col-10'>
                 <form method='post'>
