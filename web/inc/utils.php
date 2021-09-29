@@ -14,7 +14,7 @@ function getSites()
 function childPagesList($site, $parent, $padding = 0)
 {
     $sql = "select * from pages where deleted=0 and ";
-    if ($parent != null) $sql .= " parent=$parent ";
+    if ($parent != null) $sql .= " parent=$parent and key<>$parent ";
     else $sql .= " site='" . es($site) . "' and parent is null ";
     $sql .= "order by title";
 
