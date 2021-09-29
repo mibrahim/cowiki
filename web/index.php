@@ -91,7 +91,7 @@ $siteIcon = '<i class="fas fa-sitemap"></i>';
 
 $Page['leftnav'] = '<form method="get"><table><tr><td><select id="site" name="site" class="form-select">';
 foreach ($sites as $site) {
-    $Page['leftnav'] .= "<option value='" . htmlentities($site) . "' ";
+    $Page['leftnav'] .= "<option value='" . htmlentities($site, ENT_QUOTES) . "' ";
     if ($site == $currentSite) $Page['leftnav'] .= "selected";
     $Page['leftnav'] .= ">" . htmlentities($site) . "</option>\n";
 }

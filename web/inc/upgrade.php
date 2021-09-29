@@ -37,6 +37,16 @@ if ($highestversion < "0002") {
 	$highestversion = "0002";
 }
 
+if ($highestversion < "0003") {
+	query("BEGIN TRANSACTION");
+
+	query("CREATE INDEX idx_vars on variables(name)");
+
+	query("COMMIT");
+
+	$highestversion = "0003";
+}
+
 if ($highestversion < $sysversion) {
 	die("Error while upgrading system");
 }
